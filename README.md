@@ -564,7 +564,7 @@ You are already above average.
 
 ## 1️⃣ Explicit “Core Requirements Mapping” Section
 
-```markdown
+
 # ✅ Core Requirements Checklist
 
 - [x] POST /products implemented (201 Created)
@@ -579,7 +579,7 @@ You are already above average.
 - [x] Automated test suite included
 - [x] Multi-stage optimized Dockerfile
 - [x] Environment variables documented
-```
+
 
 
 ---
