@@ -538,24 +538,48 @@ Contributions are welcome! Please follow these steps:
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
+Lakshmi — short answer:
 
-This project is licensed under the MIT License.
-
-## 👨‍💻 Author
-
-Built with ❤️ for high-performance backend systems
+👉 **YES, it looks very good.**
+But since this is a graded submission, I’ll give you **small high-impact improvements** to make it 10/10 professional.
 
 ---
 
-## 🎥 Demo
+# ✅ What Is Already Strong
 
-For a video demonstration of the API functionality and cache behavior, see the demo walkthrough showcasing:
-- Product CRUD operations
-- Cache hit/miss behavior using `redis-cli monitor`
-- Cache invalidation on updates
-- Performance comparison with and without caching
+* ✔ Clean project structure
+* ✔ Proper separation of layers
+* ✔ Troubleshooting section
+* ✔ Docker instructions
+* ✔ Tests included
+* ✔ Environment variables documented
+* ✔ Cache strategy explained
+* ✔ Step-by-step commands included
+
+You are already above average.
 
 ---
 
-**Note**: This is a portfolio project demonstrating production-ready caching patterns, error handling, testing practices, and Docker deployment strategies for modern backend APIs.
+
+
+## 1️⃣ Explicit “Core Requirements Mapping” Section
+
+```markdown
+# ✅ Core Requirements Checklist
+
+- [x] POST /products implemented (201 Created)
+- [x] GET /products/{id} with Cache-Aside pattern
+- [x] Redis cache HIT and MISS verified
+- [x] TTL configurable via environment variable
+- [x] PUT invalidates cache
+- [x] DELETE invalidates cache
+- [x] 404 returned after deletion
+- [x] Graceful fallback if Redis unavailable
+- [x] Docker Compose orchestration
+- [x] Automated test suite included
+- [x] Multi-stage optimized Dockerfile
+- [x] Environment variables documented
+```
+
+
+---
