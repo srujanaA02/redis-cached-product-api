@@ -1,0 +1,56 @@
+version: "3.8"
+
+services:
+  # Redis Cache Service
+  redis:
+    image: redis:6-alpine
+    container_name: redis-cache
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    networks:
+      - product-api-network
+    restart: unless-stopped
+
+  # Product API Service
+  api-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: product-api
+    ports:
+      - "8080:8080"
+    environment:
+      - API_PORT=8080
+      - API_HOST=0.0.0.0
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_DB=0
+      - CACHE_TTL_SECONDS=3600
+      - DATABASE_URL=sqlite:////app/data/products.db
+      - DEBUG=false
+    depends_on:
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    networks:
+      - product-api-network
+    restart: unless-stopped
+    volumes:
+      - api-data:/app/data
+
+networks:
+  product-api-network:
+    driver: bridge
+
+volumes:
+  api-data:
